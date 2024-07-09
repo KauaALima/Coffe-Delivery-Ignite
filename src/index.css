@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1,strong {
+  font-family: "Baloo 2", sans-serif;
+}
