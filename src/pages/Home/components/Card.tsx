@@ -1,6 +1,7 @@
-import { ShoppingCart, Minus, Plus, Check } from 'lucide-react'
+import { ShoppingCart, X } from 'lucide-react'
 import { useContext, useState } from 'react'
 import { CardContext } from '../../../contexts/CardContextProvider'
+import { InputQuantity } from '../../../components/InputQuantity'
 
 interface CardProps {
   id: number
@@ -18,7 +19,7 @@ interface DataCoffeeProps {
 export function Card({ coffee }: DataCoffeeProps) {
   const [isItemAdd, setIsItemAdd] = useState(false)
   const [quantity, setQuantity] = useState(1)
-  const { addItem } = useContext(CardContext)
+  const { addItem, removeItem } = useContext(CardContext)
 
   function addQuantity() {
     setQuantity((state) => state + 1)
@@ -34,6 +35,10 @@ export function Card({ coffee }: DataCoffeeProps) {
     addItem({ id: coffee.id, quantity })
     setIsItemAdd(true)
     setQuantity(1)
+  }
+
+  function handleRemoveCoffe(id: number) {
+    removeItem(id)
   }
 
   return (
@@ -64,32 +69,32 @@ export function Card({ coffee }: DataCoffeeProps) {
           <span className="text-sm text-gray-700">
             R$
             <strong className="font-extrabold text-2xl ml-1">
-              {coffee.value}
+              {coffee.value.toFixed(2)}
             </strong>
           </span>
 
           <div className="flex gap-2 items-center ">
-            <div className="flex items-center gap-1 text-purple-200 bg-gray-400 p-2 rounded-md">
-              <button onClick={decreaseQuantity}>
-                <Minus size={16} />
+            <InputQuantity
+              quantity={quantity}
+              handleItemIncrement={addQuantity}
+              handleItemDecrement={decreaseQuantity}
+            />
+
+            {isItemAdd ? (
+              <button
+                className="p-2 bg-purple-300 text-white rounded-md hover:bg-purple-200 duration-300"
+                onClick={() => handleRemoveCoffe(coffee.id)}
+              >
+                <X size={22} />
               </button>
-              <span className="w-4 text-center text-base text-gray-900">
-                {quantity}
-              </span>
-              <button onClick={addQuantity}>
-                <Plus size={16} />
-              </button>
-            </div>
-            <button
-              className="p-2 bg-purple-300 text-white rounded-md hover:bg-purple-200 duration-300 "
-              onClick={handleAddItem}
-            >
-              {isItemAdd ? (
-                <Check size={22} />
-              ) : (
+            ) : (
+              <button
+                className="p-2 bg-purple-300 text-white rounded-md hover:bg-purple-200 duration-300 "
+                onClick={handleAddItem}
+              >
                 <ShoppingCart size={22} className="fill-white" />
-              )}
-            </button>
+              </button>
+            )}
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ export function Header() {
         </span>
         <NavLink
           to="/Checkout"
-          className="relative bg-yellow-100 text-yellow-300 p-2 rounded-md aria-disabled:opacity-70 aria-disabled:cursor-not-allowed"
+          className="relative bg-yellow-100 text-yellow-300 p-2 rounded-md aria-disabled:opacity-70 "
           aria-disabled={cartDisable}
         >
           <ShoppingCart size={22} className="fill-yellow-300" />

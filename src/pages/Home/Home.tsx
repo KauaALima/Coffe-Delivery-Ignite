@@ -4,7 +4,6 @@ import { Card } from './components/Card'
 import Image from '../../assets/HomeImage.svg'
 
 import { Coffes } from '../../utils/Coffes.json'
-// import { Header } from '../../components/Header'
 
 export function Home() {
   return (

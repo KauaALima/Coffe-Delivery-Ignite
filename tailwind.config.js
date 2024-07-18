@@ -31,8 +31,9 @@ export default {
       },
       gridTemplateColumns: {
         MainCard: '1fr 1fr 1fr 1fr',
+        Check: '1fr 1fr',
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }

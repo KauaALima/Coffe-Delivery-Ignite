@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+:focus{
+  outline: none;
+  box-shadow: 0 0 0 2px #C47F17;
+}
+
 h1,strong {
   font-family: "Baloo 2", sans-serif;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
