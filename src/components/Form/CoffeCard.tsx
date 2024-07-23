@@ -1,10 +1,10 @@
 import { Trash2 } from 'lucide-react'
-import { InputQuantity } from '../../../components/InputQuantity'
+import { InputQuantity } from './InputQuantity'
 import { useContext } from 'react'
-import { CardContext } from '../../../contexts/CardContextProvider'
+import { CardContext } from '../../contexts/CardContextProvider'
 
 interface CoffeCardProps {
-  itemId: number
+  itemId: string
   img: string
   title: string
   price: string
@@ -20,7 +20,7 @@ export function CoffeCard({
 }: CoffeCardProps) {
   const { removeItem } = useContext(CardContext)
 
-  function handleRemoveCoffe(id: number) {
+  function handleRemoveCoffe(id: string) {
     removeItem(id)
   }
   return (

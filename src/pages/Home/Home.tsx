@@ -1,6 +1,6 @@
 import { ShoppingCart, Timer, Package, Coffee } from 'lucide-react'
 import { Items } from '../../components/ui/items'
-import { Card } from './components/Card'
+import { Card } from '../../components/Card/Card'
 import Image from '../../assets/HomeImage.svg'
 
 import { Coffes } from '../../utils/Coffes.json'

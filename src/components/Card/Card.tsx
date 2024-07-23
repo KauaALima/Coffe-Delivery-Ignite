@@ -1,10 +1,10 @@
 import { ShoppingCart, X } from 'lucide-react'
 import { useContext, useState } from 'react'
-import { CardContext } from '../../../contexts/CardContextProvider'
-import { InputQuantity } from '../../../components/InputQuantity'
+import { CardContext } from '../../contexts/CardContextProvider'
+import { InputQuantity } from '../Form/InputQuantity'
 
 interface CardProps {
-  id: number
+  id: string
   image: string
   types: string[]
   name: string
@@ -37,7 +37,7 @@ export function Card({ coffee }: DataCoffeeProps) {
     setQuantity(1)
   }
 
-  function handleRemoveCoffe(id: number) {
+  function handleRemoveCoffe(id: string) {
     removeItem(id)
   }
 
