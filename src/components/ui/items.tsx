@@ -9,7 +9,7 @@ interface itemsProps {
 
 export function Items({ icon, className, text }: itemsProps) {
   return (
-    <span className="flex gap-3 text-base items-center text-gray-700">
+    <span className="flex gap-3 text-base items-center text-gray-700 dark:text-gray-300">
       <div className={twMerge('p-2 rounded-full text-white', className)}>
         {icon}
       </div>

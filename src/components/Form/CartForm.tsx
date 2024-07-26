@@ -27,6 +27,10 @@ export function CartForm() {
 
     const cepData = await getAddressByCEP(cep)
 
+    if (cepData.city === undefined) {
+      return alert('Cep não encontrado')
+    }
+
     setValue('road', cepData.street)
     setValue('complement', cepData.complement)
     setValue('neighborhood', cepData.neighborhood)
@@ -45,7 +49,7 @@ export function CartForm() {
           {...register('cep')}
         />
         <button
-          className="p-3 ring-1 ring-gray-400 bg-gray-300 text-sm text-gray-700 rounded duration-150 hover:bg-gray-500"
+          className="p-3 ring-1 ring-gray-400 bg-gray-300 text-sm text-gray-700 rounded duration-150 hover:bg-gray-500 dark:bg-gray-700 dark:text-gray-300 dark:ring-gray-800 dark:hover:bg-gray-800"
           onClick={handleAutoCompleteCep}
         >
           <Search size={20} />

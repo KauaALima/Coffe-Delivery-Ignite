@@ -42,7 +42,9 @@ export function Checkout() {
     resolver: zodResolver(NewAddressSchema),
   })
 
-  const { handleSubmit, register, watch } = NewAddresFormContext
+  const { handleSubmit, register, watch, formState } = NewAddresFormContext
+
+  const { isDirty, isValid } = formState
 
   const coffesInCart = cart.map((item) => {
     const coffesInfo = Coffes.find((coffee) => coffee.id === item.id)
@@ -77,11 +79,11 @@ export function Checkout() {
   return (
     <section className="flex justify-between ">
       <div>
-        <strong className="text-lg font-bold text-gray-800">
+        <strong className="text-lg font-bold text-gray-800 dark:text-gray-400">
           Complete seu pedido
         </strong>
 
-        <div className=" bg-gray-200 p-10 mt-4 rounded-md">
+        <div className=" bg-gray-200 p-10 mt-4 rounded-md dark:bg-gray-900">
           <InfoForm
             logo={<MapPin className="text-yellow-300 w-[22px]" />}
             title="Endereço de Entrega"
@@ -95,7 +97,7 @@ export function Checkout() {
           </form>
         </div>
 
-        <div className="flex flex-col gap-8 bg-gray-200 px-10 py-5 mt-4 rounded-md">
+        <div className="flex flex-col gap-8 bg-gray-200 px-10 py-5 mt-4 rounded-md dark:bg-gray-900">
           <InfoForm
             logo={<DollarSign className="text-purple-200 w-[22px]" />}
             title="Endereço de Entrega"
@@ -134,14 +136,14 @@ export function Checkout() {
       </div>
 
       <div className="w-[448px]">
-        <strong className="text-lg font-bold text-gray-800">
+        <strong className="text-lg font-bold text-gray-800 dark:text-gray-400">
           Complete seu pedido
         </strong>
 
         {coffesInCart.length === 0 ? (
           <EmptyCart />
         ) : (
-          <div className="space-y-6 bg-gray-200 p-10 mt-4 rounded-tr-[44px] rounded-tl-md rounded-bl-[44px] rounded-br-md">
+          <div className="space-y-6 bg-gray-200 p-10 mt-4 rounded-tr-[44px] rounded-tl-md rounded-bl-[44px] rounded-br-md dark:bg-gray-900">
             {coffesInCart.map((coffee) => {
               return (
                 <div className="space-y-6" key={coffee.id}>
@@ -152,7 +154,7 @@ export function Checkout() {
                     price={coffee.value.toFixed(2)}
                     quantity={coffee.quantity}
                   />
-                  <div className="w-full h-[1px] bg-gray-400 mt-" />
+                  <div className="w-full h-[1px] bg-gray-400 dark:bg-gray-800" />
                 </div>
               )
             })}
@@ -185,7 +187,8 @@ export function Checkout() {
 
             <button
               form="order"
-              className="w-full text-white text-sm font-bold uppercase py-3 bg-yellow-200 rounded-md"
+              disabled={!isDirty || !isValid}
+              className="w-full text-white text-sm font-bold uppercase py-3 bg-yellow-200 rounded-md disabled:opacity-55"
             >
               Confirmar pedido
             </button>

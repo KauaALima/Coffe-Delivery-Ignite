@@ -1,18 +1,41 @@
 import { NavLink } from 'react-router-dom'
-import Logo from '../assets/Logo.svg'
-import { ShoppingCart, MapPin } from 'lucide-react'
-import { useContext } from 'react'
+import { ShoppingCart, MapPin, Sun, Moon } from 'lucide-react'
+import { useContext, useEffect, useState } from 'react'
 import { CardContext } from '../contexts/CardContextProvider'
+import Logo from '../assets/Logo.svg'
 
 export function Header() {
   const { cart } = useContext(CardContext)
 
   const cartDisable = cart.length === 0
+
+  const [theme, setThema] = useState('light')
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }, [theme])
+
+  const handleTheme = () => {
+    setThema(theme === 'dark' ? 'light' : 'dark')
+  }
   return (
     <header className="flex justify-between py-8 items-center">
-      <NavLink to="/">
-        <img src={Logo} alt="Coffee Delivery" />
-      </NavLink>
+      <div className="flex gap-5">
+        <NavLink to="/">
+          <img src={Logo} alt="Coffee Delivery" />
+        </NavLink>
+        <button onClick={handleTheme}>
+          {theme === 'light' ? (
+            <Sun size={29} />
+          ) : (
+            <Moon size={29} className="dark:text-gray-200" />
+          )}
+        </button>
+      </div>
       <div className="flex gap-3 items-center">
         <span className="flex justify-center items-center text-sm text-purple-300 gap-1 bg-purple-100 p-2 rounded-md">
           <MapPin size={22} />

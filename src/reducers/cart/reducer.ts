@@ -41,6 +41,28 @@ export function cartReducer(state: CartState, action: Actions) {
         draft.cart.splice(tr, 1)
       })
 
+    case ActionsTypes.INCREMENT_QUANTITY:
+      return produce(state, (draft) => {
+        const Icrement = draft.cart.find(
+          (item) => item.id === action.payload.itemId,
+        )
+
+        if (Icrement?.id) {
+          Icrement.quantity += 1
+        }
+      })
+
+    case ActionsTypes.DECREMENT_QUANTITY:
+      return produce(state, (draft) => {
+        const Decrement = draft.cart.find(
+          (item) => item.id === action.payload.itemId,
+        )
+
+        if (Decrement?.id && Decrement.quantity > 1) {
+          Decrement.quantity -= 1
+        }
+      })
+
     case ActionsTypes.CHECKOUT_CART:
       return produce(state, (draft) => {
         const newcard = {

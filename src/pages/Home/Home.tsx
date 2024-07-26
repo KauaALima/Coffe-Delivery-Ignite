@@ -2,6 +2,7 @@ import { ShoppingCart, Timer, Package, Coffee } from 'lucide-react'
 import { Items } from '../../components/ui/items'
 import { Card } from '../../components/Card/Card'
 import Image from '../../assets/HomeImage.svg'
+import 'react-toastify/dist/ReactToastify.css'
 
 import { Coffes } from '../../utils/Coffes.json'
 
@@ -11,10 +12,10 @@ export function Home() {
       <section className="flex justify-between items-center pt-[94px] pb-28 ">
         <div className="flex w-[588px] flex-col gap-[66px]">
           <div>
-            <h1 className="font-bold text-5xl text-gray-900">
+            <h1 className="font-bold text-5xl text-gray-900 dark:text-gray-500">
               Encontre o café perfeito para qualquer hora do dia
             </h1>
-            <p className="text-xl text-gray-800 mt-4">
+            <p className="text-xl text-gray-800 mt-4 dark:text-gray-400">
               Com o Coffee Delivery você recebe seu café onde estiver, a
               qualquer hora
             </p>
@@ -49,11 +50,11 @@ export function Home() {
           </div>
         </div>
 
-        <img src={Image} className="w-[400px]" alt="Coffe image" />
+        <img src={Image} alt="Coffe image" />
       </section>
 
       <section className="mt-20">
-        <strong className="text-[32px] text-gray-800 font-extrabold">
+        <strong className="text-[32px] text-gray-800 font-extrabold dark:text-gray-400">
           Nossos cafés
         </strong>
 

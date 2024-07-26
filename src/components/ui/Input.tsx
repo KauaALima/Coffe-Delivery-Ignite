@@ -15,7 +15,7 @@ export const Input = forwardRef(function Input(
       ref={ref}
       onChange={onChange}
       className={twMerge(
-        'p-3 bg-gray-300 text-sm text-gray-700 ring-1 ring-gray-400 rounded placeholder:text-gray-600 ',
+        'p-3 bg-gray-300 text-sm text-gray-700 border border-gray-400 rounded placeholder:text-gray-600 dark:bg-gray-700 dark:border-gray-800 dark:text-gray-300',
         className,
       )}
       {...children}
