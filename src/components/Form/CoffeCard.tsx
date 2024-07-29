@@ -49,7 +49,7 @@ export function CoffeCard({
     <div className="flex w-full gap-5">
       <img src={img} alt="" className="w-16 h-16" />
       <div className="flex w-full flex-col gap-2">
-        <div className="flex justify-between ">
+        <div className="flex w-full justify-between ">
           <span className="text-base text-gray-800 dark:text-gray-400">
             {title}
           </span>
@@ -58,7 +58,7 @@ export function CoffeCard({
           </span>
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex w-full gap-2">
           <InputQuantity
             quantity={quantity}
             handleItemIncrement={() => incrementQunatity(itemId)}

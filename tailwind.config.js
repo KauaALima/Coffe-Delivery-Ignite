@@ -6,6 +6,9 @@ export default {
       sans: ['Roboto', 'sans-serif'],
     },
     extend: {
+      screens: {
+        md: '860px',
+      },
       colors: {
         gray: {
           100: '#FAFAFA',
@@ -31,6 +34,7 @@ export default {
       },
       gridTemplateColumns: {
         MainCard: '1fr 1fr 1fr 1fr',
+        MainCardMD: '1fr 1fr 1fr',
         Check: '1fr 1fr',
       },
     },

@@ -23,7 +23,7 @@ export function Success() {
   console.log(orderInfo)
 
   return (
-    <section className="flex items-end justify-between mt-20">
+    <section className="flex flex-col items-center justify-between mt-20 md:flex-row md:items-end">
       <div>
         <h1 className="text-[32px] text-yellow-300">Uhu! Pedido confirmado</h1>
         <p className="text-xl text-gray-800 mt-1 dark:text-gray-400">
@@ -74,7 +74,7 @@ export function Success() {
         </div>
       </div>
 
-      <img src={SuccessImg} alt="Imagem de entrega" />
+      <img src={SuccessImg} alt="Imagem de entrega" className="mt-6 md:mt-0" />
     </section>
   )
 }

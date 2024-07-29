@@ -58,7 +58,7 @@ export function CartForm() {
 
       <Input type="text" placeholder="Rua" {...register('road')} />
 
-      <div className="flex gap-3">
+      <div className="flex flex-col sm:flex-row gap-3">
         <Input
           type="number"
           id=""
@@ -74,24 +74,24 @@ export function CartForm() {
         />
       </div>
 
-      <div className="flex gap-3">
+      <div className="flex flex-col sm:flex-row gap-3">
         <Input
           type="text"
           id=""
           placeholder="Bairro"
           {...register('neighborhood')}
         />
-        <div className="flex gap-3">
+        <div className="flex w-full flex-col sm:flex-row gap-3">
           <Input
             type="text"
             placeholder="Cidade"
-            className="w-[276px]"
+            className="w-full xl:w-[276px]"
             {...register('city')}
           />
           <Input
             type="text"
             placeholder="UF"
-            className="w-[60px]"
+            className="w-full sm:w-[60px]"
             {...register('uf')}
           />
         </div>

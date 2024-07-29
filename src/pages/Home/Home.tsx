@@ -21,7 +21,7 @@ export function Home() {
             </p>
           </div>
 
-          <div className="flex gap-6">
+          <div className="flex flex-col gap-6 sm:flex-row">
             <div className="flex flex-col gap-6">
               <Items
                 icon={<ShoppingCart size={16} />}
@@ -50,15 +50,15 @@ export function Home() {
           </div>
         </div>
 
-        <img src={Image} alt="Coffe image" />
+        <img src={Image} alt="Coffe image" className="hidden lg:block" />
       </section>
 
-      <section className="mt-20">
+      <section className="mt-20 text-center sm:text-start">
         <strong className="text-[32px] text-gray-800 font-extrabold dark:text-gray-400">
           Nossos cafés
         </strong>
 
-        <div className="mt-[54px] grid grid-cols-MainCard gap-x-8 gap-y-10 ">
+        <div className="mt-[54px] justify-items-center grid gap-y-10 sm:justify-items-start sm:grid-cols-Check md:grid-cols-MainCardMD lg:gap-x-8 xl:grid-cols-MainCard">
           {Coffes.map((coffees) => {
             return <Card key={coffees.id} coffee={coffees} />
           })}

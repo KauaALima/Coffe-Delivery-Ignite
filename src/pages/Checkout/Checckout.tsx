@@ -77,7 +77,7 @@ export function Checkout() {
   }
 
   return (
-    <section className="flex justify-between ">
+    <section className="flex flex-col gap-3 md:flex-row xl:gap-0 xl:justify-between ">
       <div>
         <strong className="text-lg font-bold text-gray-800 dark:text-gray-400">
           Complete seu pedido
@@ -104,7 +104,7 @@ export function Checkout() {
             info="Informe o endereço onde deseja receber seu pedido"
           />
 
-          <div className="flex gap-3">
+          <div className="flex flex-col xl:flex-row gap-3">
             <PayButton
               isSelected={PaymentSelect === 'credit'}
               {...register('payment')}
@@ -135,7 +135,7 @@ export function Checkout() {
         </div>
       </div>
 
-      <div className="w-[448px]">
+      <div className="md:w-full lg:w-[448px]">
         <strong className="text-lg font-bold text-gray-800 dark:text-gray-400">
           Complete seu pedido
         </strong>
@@ -143,10 +143,10 @@ export function Checkout() {
         {coffesInCart.length === 0 ? (
           <EmptyCart />
         ) : (
-          <div className="space-y-6 bg-gray-200 p-10 mt-4 rounded-tr-[44px] rounded-tl-md rounded-bl-[44px] rounded-br-md dark:bg-gray-900">
+          <div className="space-y-6 w-full bg-gray-200 p-10 mt-4 rounded-tr-[44px] rounded-tl-md rounded-bl-[44px] rounded-br-md dark:bg-gray-900">
             {coffesInCart.map((coffee) => {
               return (
-                <div className="space-y-6" key={coffee.id}>
+                <div className="w-full space-y-6" key={coffee.id}>
                   <CoffeCard
                     itemId={coffee.id}
                     img={coffee.image}
@@ -158,7 +158,7 @@ export function Checkout() {
                 </div>
               )
             })}
-            <div className="space-y-3">
+            <div className="w-full space-y-3">
               <PayItems
                 title="Total de itens"
                 price={new Intl.NumberFormat('pt-BR', {
